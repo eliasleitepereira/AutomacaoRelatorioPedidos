@@ -8,7 +8,7 @@ locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') #Deixando o vocabulario do codigo
 agora = datetime.now()
 ano = agora.strftime('%Y')
 mes = agora.strftime('%B')
-mes = "agosto"
+
 
 #endregion
 
