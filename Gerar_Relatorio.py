@@ -8,7 +8,7 @@ locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') #Deixando o vocabulario do codigo
 agora = datetime.now()
 ano = agora.strftime('%Y')
 mes = agora.strftime('%B')
-
+mes = "agosto"
 
 #endregion
 
@@ -41,12 +41,12 @@ for Pedido in os.listdir(Diretorio):
 #endregion
   #region Soma total do final do mes
   dfSomaMensal = dfRelatorio.groupby(['Codigo','Cliente']).agg({'Total':'sum'}).reset_index()
-  dfSomaMensal.to_excel(f"{DiretorioRaiz}\Relatorios Mensais\Soma Final do mes\{mes}\Soma total {mes}.xlsx",index=False)#Escrevendo o data frame da soma mensal em planilha
+  dfSomaMensal.to_excel(f"{DiretorioRaiz}\Relatorios Mensais\Soma Final do mes\{ano}\{mes}\Soma total {mes}.xlsx",index=False)#Escrevendo o data frame da soma mensal em planilha
   #endregion
 
   #region Soma de produtos
   dfProdutosMax =  dfRelatorio.groupby(['Produto']).agg({'QTD':'sum'}).reset_index() #--> agrupando as informações do relatorio
-  dfProdutosMax.to_excel(f"{DiretorioRaiz}\Relatorios Mensais\Produtos\{mes}\Produtos {mes}.xlsx",index=False)#Escrevendo o data frame da soma mensal em planilha
+  dfProdutosMax.to_excel(f"{DiretorioRaiz}\Relatorios Mensais\Produtos\{ano}\{mes}\Produtos {mes}.xlsx",index=False)#Escrevendo o data frame da soma mensal em planilha
   #endregion
 
 
@@ -80,5 +80,5 @@ for index, row in dfRelatorioFinal.iterrows():
     dfLinhaEmBranco['Data'][dfLinhaEmBranco.last_valid_index()] = f"{'{:02d}'.format(DataMaior.day)}/{'{:02d}'.format(DataMaior.month)}" #Pega o ultimo index do df e preenche a linha o a maior data do grupo
 
 
-dfLinhaEmBranco.to_excel(f"{DiretorioRaiz}\Relatorios Mensais\Contador\{mes}\Relatorio de {mes}_{ano}.xlsx",index=False)#Escrevendo o data frame em planilha
+dfLinhaEmBranco.to_excel(f"{DiretorioRaiz}\Relatorios Mensais\Contador\{ano}\{mes}\Relatorio de {mes}_{ano}.xlsx",index=False)#Escrevendo o data frame em planilha
 #endregion      
