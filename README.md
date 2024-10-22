@@ -1,58 +1,76 @@
-Sistema de Gerenciamento de Pedidos e Relatórios
-Descrição
+# Sistema de Gerenciamento de Pedidos e Relatórios
+
+## Descrição
 Sistema integrado para gerenciamento de pedidos e geração de relatórios de vendas mensais. O sistema permite a criação e controle de talões de pedidos, bem como a geração automatizada de relatórios analíticos ao final de cada período.
-Funcionalidades Principais
 
-Gestão de Pedidos
+## Funcionalidades Principais
 
-Criação de talões de pedidos
-Histórico completo de transações
+### Gestão de Pedidos
+- Criação de talões de pedidos via Excel
+- Histórico completo de transações
 
-Relatórios
+### Relatórios
+- Geração automática de relatórios mensais
+- Análise de vendas por período
+- Estatísticas de desempenho
+- Organização em pastas específicas (Contador, Produtos, Soma Final do Mês)
 
-Geração automática de relatórios mensais
-Análise de vendas por período
-Estatísticas de desempenho
+## Requisitos do Sistema
+- Sistema Operacional: Windows/Linux/Mac
+- Microsoft Excel
+- Python (para execução dos scripts de relatório)
 
-Requisitos do Sistema
+## Estrutura de Arquivos
+```
+TALAO/
+├── Exemplo Talao.xlsx
+├── Banco de Dados.xlsx
+│   ├── Aba: Dados Clientes
+│   └── Aba: Dados Produtos
+├── Pastas_Mensais.py
+└── Gerar_Relatorio.py
+```
 
-Sistema Operacional: Windows/Linux/Mac
-Banco de Dados: Excel
+## Instalação
+1. Clone o repositório para sua máquina local
+2. Certifique-se de ter o Excel e Python instalados
+3. Mantenha a estrutura de pastas conforme indicado acima
 
-Instalação
+## Uso
 
-Clone o repositório
+### Criação de Pedidos
+1. Abra o arquivo `TALAO\Exemplo Talao.xlsx`
+2. Preencha os campos:
+   - **Código**: Insira o código do cliente (disponível em `TALAO\Banco de Dados.xlsx` > aba "Dados Clientes")
+   - **Data**: Insira a data de criação do pedido
+   - **Produtos**: A partir da linha 9:
+     - Coluna A: Código do produto (disponível em `TALAO\Banco de Dados.xlsx` > aba "Dados Produtos")
+     - Coluna B: Quantidade do produto
 
-Uso
+### Geração de Relatórios
+1. Execute `Pastas_Mensais.py` para criar a estrutura de pastas mensais
+2. Execute `Gerar_Relatorio.py` para gerar os relatórios nas respectivas pastas:
+   - Contador
+   - Produtos
+   - Soma Final do Mês
 
-# Criação de Pedidos
-Acessar o Arquivo TALAO\Exemplo Talao.xlsx
+## Contribuição
+1. Fork o projeto
+2. Crie sua branch de feature
+3. Commit suas alterações
+4. Push para a branch
+5. Abra um Pull Request
 
-No Campo "Codigo", Colocar o codigo que esta no arquivo TALAO\Banco de Dados.xlsx na aba "Dados Clientes"--id
-Campo "Data" colocar a data que o pedido foi criado.
+## Changelog
 
-Na coluna A apartir da linha 9, colocar o codigo dos produtos que esta no arquivo ALAO\Banco de Dados.xlsx na aba "Dados Produtos"--id
-Na coluna B apartir da linha 9, colocar a quantidade de venda do produto.
+### Versão 1.0.0
+- Lançamento inicial
+- Sistema base de pedidos
+- Relatórios mensais básicos
 
-# Gerar relatorios
-
-executar Pastas_Mensais.py para criar as pastas mesnsais.
-executar Gerar_Relatorio.py para gerar os relatorios.
-
-Contribuição
-
-Fork o projeto
-Crie sua branch de feature
-Commit suas alterações
-Push para a branch
-Abra um Pull Request
-
-
-Lançamento inicial
-Sistema base de pedidos
-Relatórios mensais básicos
-
-Versão 1.1.0
-
-Adicionado criação de pastas mensais.
-Criado as pastas para separação dos relatorios (Contador, Produtos, Soma Final do Mes)
+### Versão 1.1.0
+- Adicionada criação automática de pastas mensais
+- Implementada organização de relatórios em categorias:
+  - Contador
+  - Produtos
+  - Soma Final do Mês
